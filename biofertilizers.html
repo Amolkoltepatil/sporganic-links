@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bio Fertilizers – SP Organic Plant Technology</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green-dark: #1a3d0a;
+  --green-mid: #2d6614;
+  --green-bright: #4a9622;
+  --green-light: #a8d96b;
+  --green-pale: #eaf4d8;
+  --teal: #0e6e56;
+  --cream: #fafdf5;
+  --white: #ffffff;
+  --text: #1a2e0a;
+  --text-muted: #5a7a42;
+  --border: #d0e8b0;
+}
+
+body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+
+/* HERO */
+.hero { position: relative; background: var(--green-dark); overflow: hidden; }
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(ellipse 60% 80% at 10% 50%, rgba(74,150,34,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 90% 30%, rgba(14,110,86,0.2) 0%, transparent 55%);
+}
+.hero-inner {
+  position: relative; max-width: 1100px; margin: 0 auto;
+  padding: 5rem 2rem 4.5rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(168,217,107,0.12); border: 1px solid rgba(168,217,107,0.3);
+  color: var(--green-light); font-size: 11px; font-weight: 500;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  padding: 6px 16px; border-radius: 999px; margin-bottom: 1.5rem;
+}
+.hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 700;
+  color: #fff; line-height: 1.05; margin-bottom: 1.2rem;
+}
+.hero h1 em { color: var(--green-light); font-style: normal; }
+.hero p { font-size: 14.5px; color: rgba(255,255,255,0.62); line-height: 1.8; font-weight: 300; max-width: 420px; margin-bottom: 2rem; }
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--green-bright); color: #fff;
+  font-size: 14px; font-weight: 500;
+  padding: 12px 26px; border-radius: 999px; text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.hero-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+.hero-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start;
+}
+.stat-card {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 1.25rem; text-align: center;
+}
+.stat-card.featured { grid-column: 1/-1; background: rgba(74,150,34,0.15); border-color: rgba(74,150,34,0.3); }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--green-light); line-height: 1; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 0.5px; }
+
+/* BRAND BAR */
+.brand-bar {
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 0.9rem 2rem;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
+}
+.brand-name { font-size: 13px; font-weight: 600; color: var(--green-dark); letter-spacing: 0.3px; }
+.brand-sub { font-size: 11px; color: var(--text-muted); }
+.iso-pill {
+  background: var(--green-pale); border: 1px solid var(--border); border-radius: 8px;
+  padding: 5px 12px; font-size: 11px; font-weight: 600; color: var(--green-mid);
+}
+
+/* MAIN */
+.main { max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+.section-head h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--green-dark); }
+.section-head span { font-size: 13px; color: var(--text-muted); font-weight: 300; }
+
+/* GRID */
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+
+.product-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+  overflow: hidden; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  animation: fadeUp 0.5s ease both;
+}
+.product-card:nth-child(1) { animation-delay: 0.05s; }
+.product-card:nth-child(2) { animation-delay: 0.15s; }
+.product-card:nth-child(3) { animation-delay: 0.25s; }
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(45,102,20,0.14); border-color: var(--green-bright); }
+
+.img-wrap {
+  position: relative; height: 250px; overflow: hidden;
+  background: linear-gradient(135deg, #f0f7e8 0%, #e8f5d8 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.img-wrap img { width: 85%; height: 100%; object-fit: contain; object-position: center; transition: transform 0.4s ease; }
+.product-card:hover .img-wrap img { transform: scale(1.05) translateY(-3px); }
+.img-wrap::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 50px;
+  background: linear-gradient(to top, var(--white), transparent); pointer-events: none;
+}
+
+.type-badge {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px;
+}
+.tb-teal { background: rgba(14,110,86,0.88); color: #fff; }
+.tb-green { background: rgba(45,102,20,0.88); color: #fff; }
+.tb-lime { background: rgba(74,150,34,0.88); color: #fff; }
+
+.card-body { padding: 1.3rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.card-brand { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+.card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 700; color: var(--green-dark); line-height: 1.05; margin-bottom: 3px; }
+.card-tagline { font-size: 12px; font-weight: 500; color: var(--teal); margin-bottom: 10px; }
+.card-desc { font-size: 13px; color: #4a6a30; line-height: 1.65; font-weight: 300; flex: 1; margin-bottom: 1rem; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 1.2rem; }
+.tag {
+  font-size: 10.5px; font-weight: 500; padding: 3px 9px;
+  border-radius: 999px; background: var(--green-pale); color: var(--green-mid); border: 1px solid var(--border);
+}
+.card-foot { border-top: 1px solid var(--green-pale); padding-top: 1rem; display: flex; align-items: center; justify-content: space-between; }
+.foot-meta { font-size: 11px; color: var(--text-muted); }
+.foot-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--green-mid); text-decoration: none; }
+.foot-link svg { width: 14px; height: 14px; transition: transform 0.2s; }
+.product-card:hover .foot-link svg { transform: translateX(3px); }
+
+/* COMING SOON */
+.coming-card {
+  background: var(--green-pale); border: 2px dashed #b8d888;
+  border-radius: 20px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 3rem 1.5rem; min-height: 420px;
+}
+.plus-icon {
+  width: 52px; height: 52px; border-radius: 50%; background: var(--green-bright);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
+}
+.plus-icon svg { width: 22px; height: 22px; stroke: #fff; stroke-width: 2; }
+.coming-card h3 { font-size: 15px; font-weight: 500; color: var(--green-mid); margin-bottom: 6px; }
+.coming-card p { font-size: 12px; color: var(--text-muted); font-weight: 300; line-height: 1.6; }
+
+/* INFO STRIP */
+.info-strip { margin-top: 3.5rem; display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+.info-box {
+  background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.3rem 1.4rem; display: flex; gap: 1rem; align-items: flex-start;
+}
+.info-icon {
+  width: 38px; height: 38px; border-radius: 10px; background: var(--green-pale);
+  display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+}
+.info-text h4 { font-size: 13px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+.info-text p { font-size: 12px; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-stats { display: none; }
+  .product-grid { grid-template-columns: repeat(2,1fr); }
+  .info-strip { grid-template-columns: 1fr; }
+}
+@media (max-width: 580px) {
+  .product-grid { grid-template-columns: 1fr; }
+  .section-head { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">SP Organic Plant Technology Pvt Ltd</div>
+      <h1>Bio<br><em>Fertilizers</em></h1>
+      <p>Natural, eco-friendly formulations powered by living microorganisms — fungi, bacteria, and consortia — that enrich soil and promote sustainable plant growth.</p>
+      <a href="#products" class="hero-cta">
+        Explore Products
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card featured">
+        <div class="stat-num">ISO 9001:2015</div>
+        <div class="stat-label">Certified Quality</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Organic</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Chemicals</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="brand-bar">
+  <div>
+    <div class="brand-name">SP Organic Plant Technology Pvt Ltd</div>
+    <div class="brand-sub">BioNexus Product Range</div>
+  </div>
+  <div class="iso-pill">✓ ISO 9001:2015 Certified</div>
+</div>
+
+<main class="main" id="products">
+  <div class="section-head">
+    <h2>Our Products</h2>
+    <span>3 products · More coming soon</span>
+  </div>
+
+  <div class="product-grid">
+
+    <!-- SP VAM -->
+    <a href="/vam.html" class="product-card">
+      <div class="img-wrap">
+        <span class="type-badge tb-teal">Mycorrhizal</span>
+        <img src="vam.jpeg" alt="SP VAM Mycorrhizal Bio-Fertilizer bag" />
+      </div>
+      <div class="card-body">
+        <div class="card-brand">SP · BioNexus</div>
+        <div class="card-name">SP VAM</div>
+        <div class="card-tagline">Mycorrhizal Bio-Fertilizer</div>
+        <p class="card-desc">Endosymbiotic Endomycorrhizae fungi that colonise plant roots, extending a vast hyphal network to dramatically boost phosphorus, water, and micronutrient absorption.</p>
+        <div class="card-tags">
+          <span class="tag">Endomycorrhizae</span>
+          <span class="tag">Root Colonisation</span>
+          <span class="tag">Phosphate Uptake</span>
+          <span class="tag">Drought Tolerance</span>
+        </div>
+        <div class="card-foot">
+          <span class="foot-meta">Fungi-based · Soil &amp; Root dip</span>
+          <span class="foot-link">View details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- MahaPoshak -->
+    <a href="/mahaposhak.html" class="product-card">
+      <div class="img-wrap">
+        <span class="type-badge tb-green">Organic Manure</span>
+        <img src="Mahaposhak.jpeg" alt="SP MahaPoshak Organic Manure bag" />
+      </div>
+      <div class="card-body">
+        <div class="card-brand">SP · BioNexus</div>
+        <div class="card-name">MahaPoshak</div>
+        <div class="card-tagline">Organic Manure</div>
+        <p class="card-desc">Natural botanical minerals and biological inputs in an eco-friendly, balanced organic product. Total organic food for plant — nourishing from root to fruit through every growth stage.</p>
+        <div class="card-tags">
+          <span class="tag">Botanical Minerals</span>
+          <span class="tag">Balanced Nutrition</span>
+          <span class="tag">Eco-Friendly</span>
+          <span class="tag">All Crops</span>
+        </div>
+        <div class="card-foot">
+          <span class="foot-meta">Bio-mineral · Soil application</span>
+          <span class="foot-link">View details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Amrutkan -->
+    <a href="/amrutkan.html" class="product-card">
+      <div class="img-wrap">
+        <span class="type-badge tb-lime">Consortia</span>
+        <img src="amrutkan.jpeg" alt="SP Amrutkan Lyophilized Consortia bag" />
+      </div>
+      <div class="card-body">
+        <div class="card-brand">SP · BioNexus</div>
+        <div class="card-name">Amrutkan</div>
+        <div class="card-tagline">Lyophilized (Carrier Based Consortia)</div>
+        <p class="card-desc">Consortium microbials formulated for soil detoxification. Lyophilized carrier-based technology ensures long shelf life and maximum microbial viability at point of application.</p>
+        <div class="card-tags">
+          <span class="tag">Soil Detoxification</span>
+          <span class="tag">Microbial Consortia</span>
+          <span class="tag">Lyophilized</span>
+          <span class="tag">Carrier Based</span>
+        </div>
+        <div class="card-foot">
+          <span class="foot-meta">Multi-microbe · Soil &amp; Seed treatment</span>
+          <span class="foot-link">View details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Placeholder -->
+    <div class="coming-card">
+      <div class="plus-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+      </div>
+      <h3>More products coming soon</h3>
+      <p>We're expanding our BioNexus range.<br>Check back for new additions.</p>
+    </div>
+
+  </div>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-box">
+      <div class="info-icon">🌱</div>
+      <div class="info-text">
+        <h4>100% Natural Microorganisms</h4>
+        <p>Live, beneficial bacteria and fungi — no chemicals, no synthetic additives, no residue.</p>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="info-icon">🏆</div>
+      <div class="info-text">
+        <h4>ISO 9001:2015 Certified</h4>
+        <p>Strict quality control ensures consistent microbial count and reliable product performance.</p>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="info-icon">♻️</div>
+      <div class="info-text">
+        <h4>Sustainable Farming</h4>
+        <p>Reduces chemical dependency, rebuilds soil microbiome, and supports long-term soil health.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

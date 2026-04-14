@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SP MahaPoshak – Organic Manure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green-dark: #1a3d0a;
+  --green-mid: #2d6614;
+  --green-bright: #4a9622;
+  --green-light: #a8d96b;
+  --green-pale: #eaf4d8;
+  --teal: #0e6e56;
+  --teal-light: #e0f5ee;
+  --cream: #fafdf5;
+  --white: #ffffff;
+  --text: #1a2e0a;
+  --text-muted: #5a7a42;
+  --border: #d0e8b0;
+  --amber: #b87a10;
+  --amber-pale: #fef5e0;
+  --amber-border: #f0d080;
+  --red-pale: #fdf0f0;
+  --red-border: #f0c0c0;
+  --red: #b03030;
+}
+
+body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+
+/* HEADER */
+.header {
+  background: var(--green-dark); padding: 0 1.5rem;
+  display: flex; align-items: center; gap: 1rem; height: 64px;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+.header img.logo { height: 38px; width: auto; object-fit: contain; }
+.header-text { flex: 1; }
+.header-title { font-size: 13px; font-weight: 600; color: #fff; letter-spacing: 0.3px; line-height: 1.2; }
+.header-sub { font-size: 10px; color: var(--green-light); letter-spacing: 0.5px; font-weight: 300; }
+.iso-badge-small {
+  background: rgba(168,217,107,0.12); border: 1px solid rgba(168,217,107,0.3);
+  color: var(--green-light); font-size: 10px; font-weight: 500;
+  padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; white-space: nowrap;
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.5rem; display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--green-mid); text-decoration: none; font-weight: 500; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-sep { color: var(--border); }
+.breadcrumb-current { color: var(--text); font-weight: 500; }
+
+/* HERO — teal theme matching MahaPoshak bag */
+.product-hero {
+  background: linear-gradient(135deg, #064a38 0%, #0e6e56 55%, #0a5240 100%);
+  padding: 3rem 1.5rem 2.5rem; position: relative; overflow: hidden;
+}
+.product-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(ellipse 55% 90% at 95% 50%, rgba(168,217,107,0.1) 0%, transparent 60%),
+    radial-gradient(circle at 5% 90%, rgba(255,255,255,0.04) 0%, transparent 50%);
+}
+.product-hero-inner {
+  max-width: 860px; margin: 0 auto; position: relative;
+  display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;
+}
+.hero-img-wrap {
+  width: 110px; height: 130px; flex-shrink: 0;
+  border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06);
+}
+.hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.product-hero-text { flex: 1; min-width: 200px; }
+.product-category { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #9FE1CB; margin-bottom: 6px; }
+.product-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;
+  color: #fff; line-height: 1.05; margin-bottom: 6px;
+}
+.product-hero-sub { font-size: 13.5px; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.6; max-width: 540px; margin-bottom: 1rem; }
+.hero-tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.hero-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.85);
+}
+
+/* MAIN */
+.main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+/* DETAIL CARD */
+.detail-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; animation: fadeUp 0.4s ease both;
+}
+.detail-card:nth-child(1) { animation-delay: 0.05s; }
+.detail-card:nth-child(2) { animation-delay: 0.12s; }
+.detail-card:nth-child(3) { animation-delay: 0.19s; }
+.detail-card:nth-child(4) { animation-delay: 0.26s; }
+.detail-card:nth-child(5) { animation-delay: 0.33s; }
+.detail-card:nth-child(6) { animation-delay: 0.40s; }
+.detail-card:nth-child(7) { animation-delay: 0.47s; }
+.detail-card:nth-child(8) { animation-delay: 0.54s; }
+
+.card-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 1rem 1.4rem; background: var(--green-pale); border-bottom: 1px solid var(--border);
+}
+.card-header-icon {
+  width: 32px; height: 32px; border-radius: 8px; background: var(--green-bright);
+  display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;
+}
+.card-header h2 { font-size: 14px; font-weight: 600; color: var(--green-dark); letter-spacing: 0.2px; }
+.card-body { padding: 1.4rem; }
+
+/* INFO ROWS */
+.info-row {
+  display: flex; gap: 0.75rem; padding: 0.85rem 0;
+  border-bottom: 1px solid #f0f7e6; align-items: flex-start;
+}
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-row:first-child { padding-top: 0; }
+.info-label {
+  font-size: 11.5px; font-weight: 600; color: var(--text-muted);
+  letter-spacing: 0.5px; text-transform: uppercase;
+  min-width: 130px; flex-shrink: 0; padding-top: 1px;
+}
+.info-value { font-size: 13.5px; color: var(--text); font-weight: 400; line-height: 1.6; flex: 1; }
+.info-value strong { font-weight: 600; color: var(--green-dark); }
+
+/* LICENSE BADGES */
+.lic-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.lic-badge {
+  display: flex; flex-direction: column;
+  background: var(--green-pale); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px;
+}
+.lic-badge-label { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+.lic-badge-val { font-size: 13px; font-weight: 600; color: var(--green-dark); letter-spacing: 0.5px; }
+
+/* WEIGHT BADGES */
+.weight-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.weight-badge {
+  flex: 1; min-width: 120px; background: var(--green-pale);
+  border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; text-align: center;
+}
+.weight-badge-label { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.weight-badge-val { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--green-dark); line-height: 1; }
+
+/* COMPOSITION TABLE */
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.comp-table thead tr { background: var(--green-pale); }
+.comp-table th {
+  padding: 10px 12px; text-align: left; font-size: 11px; font-weight: 600;
+  color: var(--green-mid); letter-spacing: 1px; text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+.comp-table td { padding: 10px 12px; border-bottom: 1px solid #f0f7e6; color: var(--text); vertical-align: middle; line-height: 1.5; }
+.comp-table tbody tr:last-child td { border-bottom: none; }
+.comp-table tbody tr:hover td { background: #f5fbec; }
+.comp-table td:last-child { font-weight: 600; color: var(--green-dark); text-align: right; white-space: nowrap; }
+.nil-pill { display: inline-block; background: var(--teal-light); color: var(--teal); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+
+/* BENEFITS GRID */
+.benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.benefit-item {
+  display: flex; align-items: flex-start; gap: 8px;
+  background: var(--green-pale); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 12px;
+  font-size: 12.5px; color: var(--text-muted); line-height: 1.5; font-weight: 300;
+}
+.benefit-item::before { content: '✓'; font-size: 11px; font-weight: 700; color: var(--green-bright); flex-shrink: 0; margin-top: 1px; }
+
+/* APPLICATION BOX */
+.app-box {
+  background: linear-gradient(135deg, var(--green-pale), #ddf0c0);
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.2rem 1.4rem; line-height: 1.75;
+  font-size: 13.5px; color: var(--text); font-weight: 300;
+}
+.app-box strong { font-weight: 600; color: var(--green-dark); }
+
+/* DOSE HIGHLIGHT */
+.dose-highlight {
+  background: linear-gradient(135deg, var(--green-pale), #ddf0c0);
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+}
+.dose-num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 700; color: var(--green-dark); line-height: 1; }
+.dose-unit { font-size: 12px; color: var(--text-muted); font-weight: 300; }
+.dose-divider { width: 1px; height: 48px; background: var(--border); flex-shrink: 0; }
+.dose-detail { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; flex: 1; }
+.dose-detail strong { color: var(--green-dark); font-weight: 600; }
+
+/* NOTICES */
+.notice { border-radius: 12px; padding: 1rem 1.25rem; }
+.notice + .notice { margin-top: 0.85rem; }
+.notice-title { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.notice-body { font-size: 13px; font-weight: 300; line-height: 1.7; }
+.notice.amber { background: var(--amber-pale); border: 1px solid var(--amber-border); }
+.notice.amber .notice-title { color: var(--amber); }
+.notice.amber .notice-body { color: #7a5a10; }
+.notice.red { background: var(--red-pale); border: 1px solid var(--red-border); }
+.notice.red .notice-title { color: var(--red); }
+.notice.red .notice-body { color: #7a2020; }
+
+/* BULLET LIST */
+.bullet-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.bullet-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+.bullet-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green-bright); flex-shrink: 0; margin-top: 7px; }
+
+/* BACK BTN */
+.back-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-dark); color: #fff;
+  font-size: 14px; font-weight: 500;
+  padding: 12px 22px; border-radius: 999px; text-decoration: none;
+  transition: background 0.2s, transform 0.2s; align-self: flex-start;
+}
+.back-btn:hover { background: var(--green-mid); transform: translateX(-2px); }
+.back-btn svg { width: 16px; height: 16px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .header { height: auto; padding: 0.75rem 1rem; }
+  .iso-badge-small { display: none; }
+  .product-hero { padding: 2rem 1rem 1.75rem; }
+  .hero-img-wrap { width: 80px; height: 95px; }
+  .info-row { flex-direction: column; gap: 3px; }
+  .info-label { min-width: unset; }
+  .dose-divider { display: none; }
+  .dose-highlight { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .lic-row { flex-direction: column; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .main { padding: 1.5rem 1rem 4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <img src="logo.png" class="logo" alt="SP Organic Plant Technology Logo" />
+  <div class="header-text">
+    <div class="header-title">SP Organic Plant Technology Pvt Ltd</div>
+    <div class="header-sub">BioNexus Product Range</div>
+  </div>
+  <div class="iso-badge-small">ISO 9001:2015</div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="breadcrumb-sep">›</span>
+  <a href="humi_gold.html">Bio Fertilizers</a>
+  <span class="breadcrumb-sep">›</span>
+  <span class="breadcrumb-current">SP MahaPoshak</span>
+</div>
+
+<!-- HERO -->
+<div class="product-hero">
+  <div class="product-hero-inner">
+    <div class="hero-img-wrap">
+      <img src="Mahaposhak.jpeg" alt="SP MahaPoshak Organic Manure bag" />
+    </div>
+    <div class="product-hero-text">
+      <div class="product-category">Organic Manure</div>
+      <h1>MahaPoshak</h1>
+      <p class="product-hero-sub">Natural sources of botanical minerals and biological inputs — an eco-friendly, balanced organic product. Total organic food for plant.</p>
+      <div class="hero-tag-row">
+        <span class="hero-tag">Organic Manure</span>
+        <span class="hero-tag">Botanical Minerals</span>
+        <span class="hero-tag">Water Soluble</span>
+        <span class="hero-tag">All Crops</span>
+        <span class="hero-tag">BioNexus</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+
+  <!-- PRODUCT IDENTITY -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🏢</div>
+      <h2>Product Identity</h2>
+    </div>
+    <div class="card-body">
+      <div class="info-row">
+        <span class="info-label">Company</span>
+        <span class="info-value">SP Organic Plant Technology Pvt. Ltd</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Product Name</span>
+        <span class="info-value"><strong>SP MahaPoshak</strong> — Organic Manure</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">License Nos.</span>
+        <span class="info-value">
+          <div class="lic-row">
+            <div class="lic-badge">
+              <span class="lic-badge-label">DRC Lic. No.</span>
+              <span class="lic-badge-val">LCFWD2025100402</span>
+            </div>
+            <div class="lic-badge">
+              <span class="lic-badge-label">MRC Lic. No.</span>
+              <span class="lic-badge-val">LCFM2025100097</span>
+            </div>
+          </div>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Pack Weight</span>
+        <span class="info-value">
+          <div class="weight-row">
+            <div class="weight-badge">
+              <div class="weight-badge-label">Gross Wt.</div>
+              <div class="weight-badge-val">250<span style="font-size:1rem;">g</span></div>
+            </div>
+            <div class="weight-badge">
+              <div class="weight-badge-label">Net Wt.</div>
+              <div class="weight-badge-val">1<span style="font-size:1rem;">kg</span></div>
+            </div>
+            <div class="weight-badge">
+              <div class="weight-badge-label">Exp. Date</div>
+              <div style="font-size:12px; color:var(--amber); font-weight:500; padding-top:6px;">2 years from Mfg. date</div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPOSITION -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">⚗️</div>
+      <h2>Composition</h2>
+    </div>
+    <div class="card-body" style="padding: 0;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th style="text-align:right; width:140px;">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Moisture — percent by weight, maximum</td>
+            <td>30–40%</td>
+          </tr>
+          <tr>
+            <td>NPK Nutrients: Total N, P₂O₅ and K₂O nutrient — should not be less than</td>
+            <td>1.2%</td>
+          </tr>
+          <tr>
+            <td>Total Organic Carbon — minimum</td>
+            <td>14%</td>
+          </tr>
+          <tr>
+            <td>C:N Ratio</td>
+            <td>&lt;20</td>
+          </tr>
+          <tr>
+            <td>Particle Size — minimum 90% material should pass through 4.00mm IS Sieve</td>
+            <td>4.00mm</td>
+          </tr>
+          <tr>
+            <td>pH</td>
+            <td>6.5–8.0</td>
+          </tr>
+          <tr>
+            <td>Pathogens</td>
+            <td><span class="nil-pill">NIL</span></td>
+          </tr>
+          <tr>
+            <td>Conductivity (as dsm21) — not more than</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="background:var(--green-pale); font-size:11px; font-weight:600; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; padding:8px 12px; text-align:left;">Heavy Metal Content (mg/kg) — Maximum</td>
+          </tr>
+          <tr><td>Arsenic (as As₂O₂)</td><td>10.0</td></tr>
+          <tr><td>Cadmium (as Cd)</td><td>5.0</td></tr>
+          <tr><td>Copper (as Cu)</td><td>50.00</td></tr>
+          <tr><td>Chromium (as Cr)</td><td>300.0</td></tr>
+          <tr><td>Mercury (as Hg)</td><td>0.15</td></tr>
+          <tr><td>Nickel (as Ni)</td><td>50.00</td></tr>
+          <tr><td>Lead (as Pb)</td><td>100.00</td></tr>
+          <tr><td>Zinc (as Zn)</td><td>1000.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🌱</div>
+      <h2>Benefits</h2>
+    </div>
+    <div class="card-body">
+      <div class="benefits-grid">
+        <div class="benefit-item">Allow plants to maintain optimum nutrient uptake</div>
+        <div class="benefit-item">Soil becomes healthier, improves soil texture and fragrance</div>
+        <div class="benefit-item">Stimulates plant growth</div>
+        <div class="benefit-item">Improves fertilization of the soil</div>
+        <div class="benefit-item">Restores resistance power and immunity in soil, especially in root zone areas</div>
+        <div class="benefit-item">Increases macro and micro nutrient availability to plant from the soil</div>
+        <div class="benefit-item">Stimulates flowering and fruiting</div>
+        <div class="benefit-item">Adds luster, sweetness and quality to the product</div>
+        <div class="benefit-item">Improves quality and yield of crops</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATION & DOSAGE -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🌾</div>
+      <h2>Application &amp; Dosage (For All Crops)</h2>
+    </div>
+    <div class="card-body" style="display:flex; flex-direction:column; gap:1rem;">
+      <div class="dose-highlight">
+        <div>
+          <div class="dose-num">1<span style="font-size:1.4rem;">kg</span></div>
+          <div class="dose-unit">per 1–2 acres</div>
+        </div>
+        <div class="dose-divider"></div>
+        <div class="dose-detail">
+          Or as per <strong>soil condition, crops and stage of crops</strong>.<br>
+          Suitable for <strong>foliar, drip, drench, flood &amp; broadcasting</strong> application.
+        </div>
+      </div>
+      <div class="app-box">
+        <strong>Foliar Application:</strong> First dissolve the product in 20L fresh water and use <strong>50–100 ml/L</strong> for foliar application.<br><br>
+        <strong>Soil Application:</strong> Dissolve the product in <strong>200L fresh water</strong> and apply through Drip, Drench and Flood irrigation — also through <strong>broadcasting</strong> as per soil condition, crops and stages of crops.
+      </div>
+    </div>
+  </div>
+
+  <!-- STORAGE & PROPERTIES -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">📦</div>
+      <h2>Properties &amp; Storage</h2>
+    </div>
+    <div class="card-body">
+      <ul class="bullet-list">
+        <li>Water Soluble formulation</li>
+        <li>Store in a cool and dry place, away from direct sunlight</li>
+        <li>Plant probiotic microbes for agriculture use only — suitable for all crops</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER & CAUTION -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">⚠️</div>
+      <h2>Disclaimer &amp; Caution</h2>
+    </div>
+    <div class="card-body">
+      <div class="notice amber">
+        <div class="notice-title">⚠ Disclaimer</div>
+        <div class="notice-body">Please be aware that the outcome could change according to the application, soil conditions and climate conditions. The company will not take responsibility for any direct or indirect losses if the product is used improperly or usage instructions are not followed.</div>
+      </div>
+      <div class="notice red">
+        <div class="notice-title">🚫 Caution</div>
+        <div class="notice-body">Do not use for any other purpose. Not to be mixed with any chemical fertilizer &amp; pesticides.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANUFACTURER -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🏭</div>
+      <h2>Manufactured &amp; Marketed By</h2>
+    </div>
+    <div class="card-body">
+      <div class="info-row" style="padding-top:0;">
+        <span class="info-label">Company</span>
+        <span class="info-value"><strong>SP Organic Plant Technology Pvt. Ltd.</strong></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Factory</span>
+        <span class="info-value">A47, MIDC, Bhokardan, Dist. Jalna – 431114</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Office</span>
+        <span class="info-value">4J M Kadam Chawl Kantilal Compound, Jija Mata Marg, Andheri, Near Laxi Cottage, Mumbai – 400093</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Email</span>
+        <span class="info-value"><a href="mailto:sporganicplantt@gmail.com" style="color:var(--green-mid);">sporganicplantt@gmail.com</a></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Website</span>
+        <span class="info-value"><a href="http://sporganicplant.com" target="_blank" style="color:var(--green-mid);">sporganicplant.com</a></span>
+      </div>
+      <div class="info-row" style="padding-bottom:0; border:none;">
+        <span class="info-label">Customer Care</span>
+        <span class="info-value"><strong>+91 9404000842</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK -->
+  <a href="humi_gold.html" class="back-btn">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 8H3M7 4l-4 4 4 4"/></svg>
+    Back to Bio Fertilizers
+  </a>
+
+</main>
+</body>
+</html>

@@ -1,90 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SP Humi Gold – Product Details</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<title>SP Humi Gold</title>
+:root {
+  --green-dark: #1a3d0a;
+  --green-mid: #2d6614;
+  --green-bright: #4a9622;
+  --green-light: #a8d96b;
+  --green-pale: #eaf4d8;
+  --teal: #0e6e56;
+  --teal-light: #e0f5ee;
+  --cream: #fafdf5;
+  --white: #ffffff;
+  --text: #1a2e0a;
+  --text-muted: #5a7a42;
+  --border: #d0e8b0;
+  --amber: #b87a10;
+  --amber-pale: #fef5e0;
+  --amber-border: #f0d080;
+}
 
-<link rel="stylesheet" href="style.css">
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+}
 
+/* ── HEADER ── */
+.header {
+  background: var(--green-dark);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+.header img.logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+.header-text { flex: 1; }
+.header-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+.header-sub { font-size: 10px; color: var(--green-light); letter-spacing: 0.5px; font-weight: 300; }
+.iso-badge-small {
+  background: rgba(168,217,107,0.12);
+  border: 1px solid rgba(168,217,107,0.3);
+  color: var(--green-light);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* ── BREADCRUMB ── */
+.breadcrumb {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.breadcrumb a {
+  color: var(--green-mid);
+  text-decoration: none;
+  font-weight: 500;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-sep { color: var(--border); }
+.breadcrumb-current { color: var(--text); font-weight: 500; }
+
+/* ── HERO BAND ── */
+.product-hero {
+  background: linear-gradient(135deg, var(--green-dark) 0%, #2a5510 60%, var(--teal) 100%);
+  padding: 3rem 1.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.product-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 50% 100% at 90% 50%, rgba(168,217,107,0.08) 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(14,110,86,0.15) 0%, transparent 50%);
+}
+.product-hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.product-hero-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(168,217,107,0.15);
+  border: 1px solid rgba(168,217,107,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+.product-hero-text {}
+.product-category {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 6px;
+}
+.product-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.product-hero-sub {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 540px;
+}
+
+/* ── MAIN LAYOUT ── */
+.main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── DETAIL CARD ── */
+.detail-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  animation: fadeUp 0.4s ease both;
+}
+.detail-card:nth-child(1) { animation-delay: 0.05s; }
+.detail-card:nth-child(2) { animation-delay: 0.12s; }
+.detail-card:nth-child(3) { animation-delay: 0.19s; }
+.detail-card:nth-child(4) { animation-delay: 0.26s; }
+.detail-card:nth-child(5) { animation-delay: 0.33s; }
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem 1.4rem;
+  background: var(--green-pale);
+  border-bottom: 1px solid var(--border);
+}
+.card-header-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--green-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.card-header h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green-dark);
+  letter-spacing: 0.2px;
+}
+
+.card-body { padding: 1.4rem; }
+
+/* ── INFO ROWS ── */
+.info-row {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #f0f7e6;
+  align-items: flex-start;
+}
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-row:first-child { padding-top: 0; }
+.info-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  min-width: 130px;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+.info-value {
+  font-size: 13.5px;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.6;
+  flex: 1;
+}
+.info-value strong { font-weight: 600; color: var(--green-dark); }
+
+/* gazette note */
+.gazette-note {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--amber-pale);
+  border: 1px solid var(--amber-border);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 11.5px;
+  color: var(--amber);
+  font-weight: 400;
+}
+
+/* ── COMPOSITION TABLE ── */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.comp-table thead tr {
+  background: var(--green-pale);
+}
+.comp-table th {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green-mid);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+.comp-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid #f0f7e6;
+  color: var(--text);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.comp-table tbody tr:last-child td {
+  border-bottom: none;
+  font-weight: 600;
+  color: var(--green-dark);
+  background: var(--green-pale);
+}
+.comp-table tbody tr:hover td { background: #f5fbec; }
+.comp-table tbody tr:last-child:hover td { background: var(--green-pale); }
+.pct-pill {
+  display: inline-block;
+  background: var(--green-pale);
+  border: 1px solid var(--border);
+  color: var(--green-mid);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+.pct-pill.total {
+  background: var(--green-bright);
+  color: #fff;
+  border-color: var(--green-bright);
+}
+
+/* ── DOSE HIGHLIGHT ── */
+.dose-highlight {
+  background: linear-gradient(135deg, var(--green-pale), #ddf0c0);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.dose-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  line-height: 1;
+}
+.dose-unit { font-size: 13px; color: var(--text-muted); font-weight: 300; }
+.dose-detail { font-size: 13px; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+.dose-detail strong { color: var(--green-dark); font-weight: 600; }
+.dose-divider { width: 1px; height: 48px; background: var(--border); }
+
+/* ── BACK BUTTON ── */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green-dark);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+.back-btn:hover { background: var(--green-mid); transform: translateX(-2px); }
+.back-btn svg { width: 16px; height: 16px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .header { height: auto; padding: 0.75rem 1rem; flex-wrap: wrap; }
+  .iso-badge-small { display: none; }
+  .product-hero { padding: 2rem 1rem 1.75rem; }
+  .product-hero-icon { width: 50px; height: 50px; font-size: 22px; }
+  .info-row { flex-direction: column; gap: 4px; }
+  .info-label { min-width: unset; }
+  .dose-divider { display: none; }
+  .dose-highlight { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .comp-table th, .comp-table td { padding: 8px 10px; }
+  .main { padding: 1.5rem 1rem 4rem; }
+}
+</style>
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header class="header">
-<img src="logo.png" class="logo">
-<h4>SP Organic Plant Technology Pvt Ltd</h4>
+  <img src="logo.png" class="logo" alt="SP Organic Plant Technology Logo" />
+  <div class="header-text">
+    <div class="header-title">SP Organic Plant Technology Pvt Ltd</div>
+    <div class="header-sub">BioNexus Product Range</div>
+  </div>
+  <div class="iso-badge-small">ISO 9001:2015</div>
 </header>
-<div class="product-container">
-<div class="product-card">
-    <ol>
-  <li> <div class="section">
-        <strong> Company Name:-</strong> SP Organic Plant technology Pvt. Ltd
-   </li>
-   <li> <div class="section">      
-        <strong> DRC License No:-</strong> LCBW0720250075
-   </li>
-   <li> <div class="section">
-        <strong> Product Name:-</strong> SP Humi Gold(Humic Acid and fulvic Acid and.
-Their derivatives) Humic Acid and Fulvic Acid
-(85% powder)
-<p> Gazette Notification Name.
-Date S.O. 2346 E Dated 25-5-2015</p>
-   </li>
-   <li> <div class ="section"><Strong>Composition</Strong></li>
-     
-     <table class="composition-table">
-        <tr>
-            <thead>
-        <th>Sr.No</th>
-        <th>Ingrediants</th>
-        <th>Percentage</th>
-        </tr>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="breadcrumb-sep">›</span>
+  <a href="humi_gold.html">Bio Fertilizers</a>
+  <span class="breadcrumb-sep">›</span>
+  <span class="breadcrumb-current">SP Humi Gold</span>
+</div>
+
+<!-- PRODUCT HERO -->
+<div class="product-hero">
+  <div class="product-hero-inner">
+    <div class="product-hero-icon">🌿</div>
+    <div class="product-hero-text">
+      <div class="product-category">Humic Acid Bio-Fertilizer</div>
+      <h1>SP Humi Gold</h1>
+      <p class="product-hero-sub">Humic Acid &amp; Fulvic Acid and their derivatives — 85% powder formulation for enhanced soil fertility and plant nutrition.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- PRODUCT IDENTITY -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🏢</div>
+      <h2>Product Identity</h2>
+    </div>
+    <div class="card-body">
+      <div class="info-row">
+        <span class="info-label">Company</span>
+        <span class="info-value">SP Organic Plant Technology Pvt. Ltd</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">DRC License No</span>
+        <span class="info-value"><strong>LCBW0720250075</strong></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Product Name</span>
+        <span class="info-value">
+          <strong>SP Humi Gold</strong><br>
+          Humic Acid and Fulvic Acid and their derivatives (85% Powder)
+          <div class="gazette-note">
+            📜 Gazette Notification: S.O. 2346 E &nbsp;·&nbsp; Dated 25-05-2015
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPOSITION TABLE -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">⚗️</div>
+      <h2>Composition</h2>
+    </div>
+    <div class="card-body" style="padding: 0;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th style="width:48px;">Sr.</th>
+            <th>Ingredient</th>
+            <th style="width:110px;">Percentage</th>
+          </tr>
         </thead>
         <tbody>
-           
-            <tr>
-                <td>i.</td>
-                    <td>Humic Acid content   Percent weight = 70 %
-(source: Leonardite) minimum total
-</td>
-                    <td>70%</td>
-            </tr>
-             <tr>
-                <td>ii.</td>
-                    <td>Fulvic Acid percent by weight min </td>
-                    <td>15%</td>
-            </tr>
-             <tr>
-                <td>iii.</td>
-                    <td>Potassium hydroxide percent by weight</td>
-                    <td>15%</td>
-            </tr>
-            <tr>
-                <td>iv.</td>
-                    <td>Total</td>
-                    <td>100%</td>
-            </tr>
+          <tr>
+            <td>i.</td>
+            <td>Humic Acid content (source: Leonardite) — minimum total percent by weight</td>
+            <td><span class="pct-pill">70%</span></td>
+          </tr>
+          <tr>
+            <td>ii.</td>
+            <td>Fulvic Acid — minimum percent by weight</td>
+            <td><span class="pct-pill">15%</span></td>
+          </tr>
+          <tr>
+            <td>iii.</td>
+            <td>Potassium Hydroxide — percent by weight</td>
+            <td><span class="pct-pill">15%</span></td>
+          </tr>
+          <tr>
+            <td>iv.</td>
+            <td>Total</td>
+            <td><span class="pct-pill total">100%</span></td>
+          </tr>
         </tbody>
-    </table>
-
-    <li>
-        <div class="section">
-        <strong> Name of Crop :-</strong> Tomato
+      </table>
     </div>
-     </li> 
-   <div class="section">
-    <li><strong>Dose:-</strong>Three soil Application at 1250 g/ha</li>
-</div> 
-</div>   
+  </div>
 
-</ol>
-<a href="index.html" class="back-btn">⬅ Back to Home</a>
-</div>
-</div>
+  <!-- CROP & DOSE -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🌾</div>
+      <h2>Recommended Crop &amp; Dosage</h2>
+    </div>
+    <div class="card-body" style="display: flex; flex-direction: column; gap: 1rem;">
+      <div class="info-row" style="padding: 0; border: none;">
+        <span class="info-label">Crop</span>
+        <span class="info-value"><strong>Tomato</strong></span>
+      </div>
+      <div class="dose-highlight">
+        <div>
+          <div class="dose-num">1250 <span style="font-size:1.2rem;">g</span></div>
+          <div class="dose-unit">per hectare / application</div>
+        </div>
+        <div class="dose-divider"></div>
+        <div class="dose-detail">
+          <strong>3 soil applications</strong> at 1250 g/ha each.<br>
+          Apply directly to soil around the root zone.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK BUTTON -->
+  <a href="humi_gold.html" class="back-btn">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 8H3M7 4l-4 4 4 4"/></svg>
+    Back to Bio Fertilizers
+  </a>
+
+</main>
 
 </body>
-
 </html>
