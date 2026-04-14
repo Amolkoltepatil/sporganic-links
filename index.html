@@ -1,54 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SP Organic Plant - Your source for natural, chemical-free organic plants and gardening products. Healthy, eco-friendly and sustainable plants for home and garden.">
-<meta name="keywords" content="SP Organic Plant, organic plants, natural plants, chemical free plants, gardening, nursery, organic farming">
+<meta name="description" content="SP Organic Plant Technology Pvt Ltd — Premium bio fertilizers, organic manure and bio pesticides. Natural, chemical-free products for sustainable farming.">
+<meta name="keywords" content="SP Organic Plant, bio fertilizers, organic manure, VAM, Amrutkan, MahaPoshak, Humi Gold, sustainable farming, BioNexus">
 <meta name="robots" content="index, follow">
+<title>SP Organic Plant Technology Pvt Ltd</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <link rel="stylesheet" href="style.css">
 
-<title>SP Organic Plant | Bio Fertilizers</title>
-<link rel="stylesheet" href="style.css">
-<img src="logo.png" class="logo">
 </head>
-
 <body>
 
-<header class="header">
-<h1>SP Organic Plant Technology Pvt Ltd</h1>
-</header>
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="SP Organic Plant Logo" />
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">SP Organic Plant Technology</span>
+      <span class="nav-logo-sub">BioNexus · ISO 9001:2015</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#why-us">Why Us</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="tel:+919404000842" class="btn-contact-nav"><i class="fa-solid fa-phone"></i> Call Us</a>
+    <button class="btn-login" onclick="openModal()"><i class="fa-solid fa-user"></i> Login</button>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-<div class="container">
-
-<div class="card">
-
-<p class="tagline">🌿 Premium Organic Fertilizers & Bio Pesticides</p>
-
-<p>
-Our products improve soil health and increase crop yield naturally.
-Safe for farmers, soil and environment.
-</p>
-
-<a href="product.html" class="product-btn">
-View All Product Details
-</a>
-
-<div class="contact">
-    <span><i class="fa-solid fa-phone"></i> +91 9404000842</span>
-    &nbsp;&nbsp; | &nbsp;&nbsp;
-    <span><i class="fa-solid fa-envelope"></i> <a href=""></a>sporganicplantt@gmail.com</span>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#products" onclick="toggleMenu()"><i class="fa-solid fa-seedling"></i> Products</a>
+  <a href="#why-us" onclick="toggleMenu()"><i class="fa-solid fa-star"></i> Why Us</a>
+  <a href="#contact" onclick="toggleMenu()"><i class="fa-solid fa-envelope"></i> Contact</a>
+  <a href="tel:+919404000842"><i class="fa-solid fa-phone"></i> +91 9404000842</a>
+  <a href="#" class="m-login" onclick="toggleMenu(); openModal();"><i class="fa-solid fa-user"></i> Login / Register</a>
 </div>
 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow">ISO 9001:2015 Certified</div>
+        <h1>Nature's Power,<br><em>Farmer's Pride</em></h1>
+        <p class="hero-desc">Premium bio fertilizers and organic solutions crafted from living microorganisms — enriching your soil, boosting your yield, and protecting the planet.</p>
+        <div class="hero-ctas">
+          <a href="#products" class="btn-primary">
+            Explore Products <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn-secondary">
+            Get in Touch
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><i class="fa-solid fa-check-circle"></i> 100% Organic</div>
+          <div class="trust-divider"></div>
+          <div class="trust-item"><i class="fa-solid fa-check-circle"></i> Zero Chemicals</div>
+          <div class="trust-divider"></div>
+          <div class="trust-item"><i class="fa-solid fa-check-circle"></i> All Crops</div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="stat-card">
+          <div class="stat-num">ISO</div>
+          <div class="stat-label">9001:2015 Certified</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Chemical Free</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">BioNexus Products Available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND BAR -->
+<div class="brand-bar">
+  <div class="iso-pill">✓ ISO 9001:2015 Certified · BioNexus Range</div>
+  <div class="brand-contact">
+    <a href="tel:+919404000842"><i class="fa-solid fa-phone"></i> +91 9404000842</a>
+    <a href="mailto:sporganicplantt@gmail.com"><i class="fa-solid fa-envelope"></i> sporganicplantt@gmail.com</a>
+    <a href="http://sporganicplant.com" target="_blank"><i class="fa-solid fa-globe"></i> sporganicplant.com</a>
+  </div>
 </div>
 
-</div>
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-label">Our Range</div>
+      <h2 class="section-title">BioNexus Product Line</h2>
+      <p class="section-desc">Natural, living-microorganism formulations for every crop and every soil condition.</p>
+    </div>
+    <div class="products-grid">
 
+      <a href="vam.html" class="prod-card">
+        <div class="prod-img">
+          <span class="prod-badge badge-teal">Mycorrhizal</span>
+          <img src="vam.jpeg" alt="SP VAM" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">SP VAM</div>
+          <div class="prod-type">Mycorrhizal Bio-Fertilizer</div>
+          <p class="prod-desc">Endosymbiotic Endomycorrhizae fungi boosting root nutrient & water absorption for all crops.</p>
+          <div class="prod-link">View details <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
+
+      <a href="amrutkan.html" class="prod-card">
+        <div class="prod-img">
+          <span class="prod-badge badge-lime">Consortia</span>
+          <img src="amrutkan.jpeg" alt="SP Amrutkan" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">SP Amrutkan</div>
+          <div class="prod-type">Lyophilized Carrier Based Consortia</div>
+          <p class="prod-desc">Consortium microbials for soil detoxification — high viability with lyophilized carrier technology.</p>
+          <div class="prod-link">View details <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
+
+      <a href="mahaposhak.html" class="prod-card">
+        <div class="prod-img">
+          <span class="prod-badge badge-green">Organic Manure</span>
+          <img src="Mahaposhak.jpeg" alt="SP MahaPoshak" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">SP MahaPoshak</div>
+          <div class="prod-type">Organic Manure</div>
+          <p class="prod-desc">Botanical minerals and biological inputs — eco-friendly balanced organic food for plants.</p>
+          <div class="prod-link">View details <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
+
+      <a href="humi_gold_detail.html" class="prod-card">
+        <div class="prod-img" style="background: linear-gradient(135deg, #f5f8e8, #e8f0d0);">
+             <img src="humigold.jpeg" alt="SP MahaPoshak" />
+          <span class="prod-badge badge-amber">Humic Acid</span>
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">SP Humi Gold</div>
+          <div class="prod-type">Humic Acid & Fulvic Acid (85% Powder)</div>
+          <p class="prod-desc">Leonardite-sourced humic & fulvic acid blend for enhanced soil fertility and nutrient uptake.</p>
+          <div class="prod-link">View details <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="why-us">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-label" style="color: var(--green-light);">Why Choose Us</div>
+      <h2 class="section-title">Built on Science,<br>Rooted in Nature</h2>
+      <p class="section-desc">Every product is formulated for maximum efficacy with zero environmental harm.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <div class="why-title">Science-Backed Formulas</div>
+        <div class="why-desc">Each product is developed with proven microbial science — guaranteed viable counts, tested pH, and quantified efficiency characters.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <div class="why-title">ISO 9001:2015 Certified</div>
+        <div class="why-desc">Our manufacturing meets strict international quality standards — ensuring consistent microbial counts and product performance batch after batch.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌱</div>
+        <div class="why-title">100% Chemical Free</div>
+        <div class="why-desc">No synthetic chemicals, no harmful residues. Safe for farmers, soil ecosystems, and the environment — for generations to come.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌾</div>
+        <div class="why-title">Suitable for All Crops</div>
+        <div class="why-desc">From cereals and legumes to horticulture and vegetables — our BioNexus range works across all crop types and soil conditions.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💧</div>
+        <div class="why-title">Multiple Application Methods</div>
+        <div class="why-desc">Drip, flood, foliar, drenching, broadcasting — flexible application fits your farm's existing irrigation system with no extra equipment.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📦</div>
+        <div class="why-title">Long Shelf Life</div>
+        <div class="why-desc">Lyophilized and carrier-based technologies ensure 2-year shelf life with maximum microbial viability at the point of application.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">We're Here to Help</h2>
+      <p class="section-desc">Reach out for product enquiries, dealer partnerships, or farming advice.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="contact-text">
+            <h4>Customer Care</h4>
+            <p><a href="tel:+919404000842">+91 9404000842</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="contact-text">
+            <h4>Email</h4>
+            <p><a href="mailto:sporganicplantt@gmail.com">sporganicplantt@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-globe"></i></div>
+          <div class="contact-text">
+            <h4>Website</h4>
+            <p><a href="http://sporganicplant.com" target="_blank">sporganicplant.com</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-industry"></i></div>
+          <div class="contact-text">
+            <h4>Factory</h4>
+            <p>A47, MIDC, Bhokardan, Dist. Jalna – 431114</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-building"></i></div>
+          <div class="contact-text">
+            <h4>Office</h4>
+            <p>4J M Kadam Chawl Kantilal Compound, Jija Mata Marg, Andheri, Mumbai – 400093</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send an Enquiry</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="+91 XXXXX XXXXX" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Product Interest</label>
+          <select>
+            <option value="">Select a product...</option>
+            <option>SP VAM</option>
+            <option>SP Amrutkan</option>
+            <option>SP MahaPoshak</option>
+            <option>SP Humi Gold</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us about your crop, location, or any questions..."></textarea>
+        </div>
+        <button class="btn-submit">Send Enquiry <i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-© 2026 SP Organic Plant Technology Pvt Ltd
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">SP Organic Plant Technology Pvt Ltd</div>
+        <div class="footer-brand-sub">BioNexus · ISO 9001:2015 Certified</div>
+        <p class="footer-desc">Presenting the most advanced bio fertilizer technology in Indian agriculture — natural, eco-friendly, and built for every farmer.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="vam.html">SP VAM</a></li>
+          <li><a href="amrutkan.html">SP Amrutkan</a></li>
+          <li><a href="mahaposhak.html">SP MahaPoshak</a></li>
+          <li><a href="humi_gold_detail.html">SP Humi Gold</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919404000842">+91 9404000842</a></li>
+          <li><a href="mailto:sporganicplantt@gmail.com">sporganicplantt@gmail.com</a></li>
+          <li><a href="http://sporganicplant.com" target="_blank">sporganicplant.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 SP Organic Plant Technology Pvt Ltd. All rights reserved.</span>
+      <span class="footer-iso">✓ ISO 9001:2015 Certified</span>
+    </div>
+  </div>
 </footer>
 
-</body>
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-logo-row">
+        <img src="logo.png" alt="Logo" />
+      </div>
+      <h2>Welcome Back</h2>
+      <p>SP Organic Plant Technology Portal</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-tabs">
+        <button class="modal-tab active" onclick="switchTab('login')">Login</button>
+        <button class="modal-tab" onclick="switchTab('register')">Register</button>
+      </div>
 
+      <!-- LOGIN TAB -->
+      <div class="tab-panel active" id="tab-login">
+        <div class="form-group">
+          <label>Email / Phone</label>
+          <input type="text" placeholder="Enter your email or phone" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Enter your password" />
+          <a href="#" class="modal-forgot">Forgot password?</a>
+        </div>
+        <button class="btn-modal">Login <i class="fa-solid fa-arrow-right"></i></button>
+        <p class="modal-note">Don't have an account? <a href="#" style="color:var(--green-mid);" onclick="switchTab('register')">Register here</a></p>
+      </div>
+
+      <!-- REGISTER TAB -->
+      <div class="tab-panel" id="tab-register">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="First name" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Last name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Create a password" />
+        </div>
+        <button class="btn-modal">Create Account <i class="fa-solid fa-arrow-right"></i></button>
+        <p class="modal-note">Already have an account? <a href="#" style="color:var(--green-mid);" onclick="switchTab('login')">Login here</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Login modal
+  function openModal() {
+    document.getElementById('loginModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('loginModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('loginModal')) closeModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // Tab switching
+  function switchTab(tab) {
+    document.querySelectorAll('.modal-tab').forEach((t, i) => {
+      t.classList.toggle('active', (i === 0 && tab === 'login') || (i === 1 && tab === 'register'));
+    });
+    document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+    document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-menu a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('hamburger').classList.remove('open');
+      document.getElementById('mobileMenu').classList.remove('open');
+    });
+  });
+</script>
+</body>
 </html>
