@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SP-Spark – Mix Micro Nutrient | SP Organic Plant Technology</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green-dark: #1a3d0a;
+  --green-mid: #2d6614;
+  --green-bright: #4a9622;
+  --green-light: #a8d96b;
+  --green-pale: #eaf4d8;
+  --teal: #0e6e56;
+  --cream: #fafdf5;
+  --white: #ffffff;
+  --text: #1a2e0a;
+  --text-muted: #5a7a42;
+  --border: #d0e8b0;
+  --amber: #b87a10;
+  --amber-pale: #fef5e0;
+  --amber-border: #f0d080;
+  --red-pale: #fdf0f0;
+  --red-border: #f0c0c0;
+  --red: #b03030;
+  /* SP-Spark accent — orange/brown from label */
+  --spark-orange: #b8520a;
+  --spark-orange-pale: #fff0e6;
+  --spark-orange-border: #f5c090;
+}
+
+body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+
+/* HEADER */
+.header {
+  background: var(--green-dark); padding: 0 1.5rem;
+  display: flex; align-items: center; gap: 1rem; height: 64px;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+.header img.logo { height: 38px; width: auto; object-fit: contain; }
+.header-text { flex: 1; }
+.header-title { font-size: 13px; font-weight: 600; color: #fff; letter-spacing: 0.3px; line-height: 1.2; }
+.header-sub { font-size: 10px; color: var(--green-light); letter-spacing: 0.5px; font-weight: 300; }
+.iso-badge-small {
+  background: rgba(168,217,107,0.12); border: 1px solid rgba(168,217,107,0.3);
+  color: var(--green-light); font-size: 10px; font-weight: 500;
+  padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; white-space: nowrap;
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.5rem; display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--green-mid); text-decoration: none; font-weight: 500; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-sep { color: var(--border); }
+.breadcrumb-current { color: var(--text); font-weight: 500; }
+
+/* HERO — orange-brown + green theme matching SP-Spark label */
+.product-hero {
+  background: linear-gradient(135deg, #3d1a02 0%, #7a3008 45%, #1a4d08 100%);
+  padding: 3rem 1.5rem 2.5rem; position: relative; overflow: hidden;
+}
+.product-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(ellipse 55% 80% at 90% 50%, rgba(168,217,107,0.1) 0%, transparent 60%),
+    radial-gradient(circle at 6% 85%, rgba(184,82,10,0.15) 0%, transparent 50%);
+}
+.hero-dots {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.product-hero-inner {
+  max-width: 860px; margin: 0 auto; position: relative;
+  display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;
+}
+.hero-img-wrap {
+  width: 110px; height: 130px; flex-shrink: 0;
+  border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+}
+.hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.product-hero-text { flex: 1; min-width: 200px; }
+.product-category { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #ffc080; margin-bottom: 8px; }
+.product-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700;
+  color: #fff; line-height: 1.05; margin-bottom: 4px;
+}
+.product-hero h1 span { color: #ffc080; }
+.product-hero-hindi { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 10px; font-weight: 300; }
+.product-hero-sub { font-size: 13.5px; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.6; max-width: 540px; margin-bottom: 1.1rem; }
+.hero-tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.hero-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px;
+  background: rgba(255,160,60,0.12); border: 1px solid rgba(255,160,60,0.3); color: #ffc080;
+}
+.hero-tag.green { background: rgba(168,217,107,0.12); border-color: rgba(168,217,107,0.3); color: var(--green-light); }
+
+/* MAIN */
+.main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+/* EMPTY BANNER */
+.empty-banner {
+  background: var(--spark-orange-pale); border: 1.5px dashed var(--spark-orange-border);
+  border-radius: 12px; padding: 1rem 1.4rem;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: var(--spark-orange); font-weight: 400;
+}
+.empty-banner i { font-size: 16px; flex-shrink: 0; }
+
+/* DETAIL CARD */
+.detail-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; animation: fadeUp 0.4s ease both;
+}
+.detail-card:nth-child(1) { animation-delay: 0.05s; }
+.detail-card:nth-child(2) { animation-delay: 0.10s; }
+.detail-card:nth-child(3) { animation-delay: 0.15s; }
+.detail-card:nth-child(4) { animation-delay: 0.20s; }
+.detail-card:nth-child(5) { animation-delay: 0.25s; }
+.detail-card:nth-child(6) { animation-delay: 0.30s; }
+.detail-card:nth-child(7) { animation-delay: 0.35s; }
+.detail-card:nth-child(8) { animation-delay: 0.40s; }
+.detail-card:nth-child(9) { animation-delay: 0.45s; }
+
+.card-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 1rem 1.4rem; background: var(--green-pale); border-bottom: 1px solid var(--border);
+}
+.card-header-icon {
+  width: 32px; height: 32px; border-radius: 8px; background: var(--green-bright);
+  display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;
+}
+.card-header h2 { font-size: 14px; font-weight: 600; color: var(--green-dark); letter-spacing: 0.2px; }
+.card-body { padding: 1.4rem; }
+
+/* INFO ROWS */
+.info-row {
+  display: flex; gap: 0.75rem; padding: 0.85rem 0;
+  border-bottom: 1px solid #f0f7e6; align-items: flex-start;
+}
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-row:first-child { padding-top: 0; }
+.info-label {
+  font-size: 11.5px; font-weight: 600; color: var(--text-muted);
+  letter-spacing: 0.5px; text-transform: uppercase;
+  min-width: 140px; flex-shrink: 0; padding-top: 1px;
+}
+.info-value { font-size: 13.5px; color: var(--text); font-weight: 400; line-height: 1.6; flex: 1; }
+.info-value strong { font-weight: 600; color: var(--green-dark); }
+
+/* EMPTY FIELD */
+.empty-field {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #f9f9f9; border: 1.5px dashed #ddd;
+  border-radius: 6px; padding: 5px 14px;
+  font-size: 12px; color: #aaa; font-style: italic;
+}
+.empty-field::before { content: '—'; }
+
+/* WEIGHT ROW */
+.weight-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.weight-badge {
+  flex: 1; min-width: 110px; background: var(--green-pale);
+  border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; text-align: center;
+}
+.weight-badge.empty { background: #f9f9f9; border: 1.5px dashed #ddd; }
+.weight-badge-label { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.weight-badge-val { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--green-dark); line-height: 1; }
+.weight-badge.empty .weight-badge-val { font-size: 1rem; color: #bbb; font-style: italic; font-family: 'Outfit', sans-serif; font-weight: 300; }
+
+/* TABLES */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table thead tr { background: var(--green-pale); }
+.data-table th { padding: 10px 12px; text-align: left; font-size: 11px; font-weight: 600; color: var(--green-mid); letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.data-table td { padding: 11px 12px; border-bottom: 1px solid #f0f7e6; color: var(--text); vertical-align: middle; line-height: 1.55; }
+.data-table td.val-cell { font-weight: 600; color: var(--green-dark); text-align: right; }
+.data-table td.empty-cell { color: #bbb; font-style: italic; text-align: right; }
+.data-table tbody tr:last-child td { border-bottom: none; background: var(--green-pale); font-weight: 600; color: var(--green-dark); }
+.data-table tbody tr:hover:not(:last-child) td { background: #f5fbec; }
+
+.spec-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.spec-table thead tr { background: var(--green-pale); }
+.spec-table th { padding: 10px 12px; text-align: left; font-size: 11px; font-weight: 600; color: var(--green-mid); letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.spec-table td { padding: 10px 12px; border-bottom: 1px solid #f0f7e6; vertical-align: middle; }
+.spec-table td:last-child { font-weight: 600; color: var(--green-dark); text-align: right; }
+.spec-table td.empty-cell { color: #bbb; font-style: italic; }
+.spec-table tbody tr:last-child td { border-bottom: none; }
+.spec-table tbody tr:hover td { background: #f5fbec; }
+
+/* CROP TABLE */
+.crop-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.crop-table thead tr { background: var(--green-pale); }
+.crop-table th { padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 600; color: var(--green-mid); letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.crop-table td { padding: 11px 14px; border-bottom: 1px solid #f0f7e6; vertical-align: middle; line-height: 1.5; color: var(--text); }
+.crop-table tbody tr:last-child td { border-bottom: none; }
+.crop-table tbody tr:hover td { background: #f5fbec; }
+.crop-name-cell { font-weight: 600; color: var(--green-dark); display: flex; align-items: center; gap: 7px; }
+.crop-name-cell i { color: var(--green-bright); font-size: 12px; }
+.empty-dose { display: inline-block; background: #f9f9f9; border: 1.5px dashed #ddd; color: #bbb; font-size: 11.5px; font-style: italic; padding: 3px 12px; border-radius: 999px; }
+
+/* MICRONUTRIENT PILLS */
+.nutrient-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.nutrient-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--green-pale); border: 1px solid var(--border);
+  border-radius: 10px; padding: 8px 14px;
+  font-size: 12.5px; font-weight: 500; color: var(--green-mid);
+}
+.nutrient-pill .symbol {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+  font-weight: 700; color: var(--green-dark);
+}
+.nutrient-pill .pct { font-size: 11px; color: var(--text-muted); font-weight: 300; }
+.nutrient-pill.empty { background: #f9f9f9; border: 1.5px dashed #ddd; color: #bbb; }
+.nutrient-pill.empty .symbol { color: #ccc; }
+
+/* BENEFIT ITEM */
+.benefit-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 1rem 1.2rem; border-radius: 12px;
+  background: var(--green-pale); border: 1px solid var(--border); margin-bottom: 0.75rem;
+}
+.benefit-item:last-child { margin-bottom: 0; }
+.benefit-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+.benefit-text h4 { font-size: 13px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+.benefit-text p { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+/* NOTICES */
+.notice { border-radius: 12px; padding: 1rem 1.25rem; }
+.notice + .notice { margin-top: 0.85rem; }
+.notice-title { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.notice-body { font-size: 13px; font-weight: 300; line-height: 1.7; }
+.notice.amber { background: var(--amber-pale); border: 1px solid var(--amber-border); }
+.notice.amber .notice-title { color: var(--amber); }
+.notice.amber .notice-body { color: #7a5a10; }
+.notice.red { background: var(--red-pale); border: 1px solid var(--red-border); }
+.notice.red .notice-title { color: var(--red); }
+.notice.red .notice-body { color: #7a2020; }
+.notice.blue { background: #f0f2ff; border: 1px solid #c8ceff; }
+.notice.blue .notice-title { color: #2a3a9e; }
+.notice.blue .notice-body { color: #3a4a8e; }
+
+/* BACK BTN */
+.back-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-dark); color: #fff;
+  font-size: 14px; font-weight: 500;
+  padding: 12px 22px; border-radius: 999px; text-decoration: none;
+  transition: background 0.2s, transform 0.2s; align-self: flex-start;
+}
+.back-btn:hover { background: var(--green-mid); transform: translateX(-2px); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .header { height: auto; padding: 0.75rem 1rem; }
+  .iso-badge-small { display: none; }
+  .product-hero { padding: 2rem 1rem 1.75rem; }
+  .hero-img-wrap { width: 80px; height: 95px; }
+  .info-row { flex-direction: column; gap: 3px; }
+  .info-label { min-width: unset; }
+  .main { padding: 1.5rem 1rem 4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <img src="logo.png" class="logo" alt="SP Organic Plant Technology Logo" />
+  <div class="header-text">
+    <div class="header-title">SP Organic Plant Technology Pvt Ltd</div>
+    <div class="header-sub">BioNexus Product Range</div>
+  </div>
+  <div class="iso-badge-small">ISO 9001:2015</div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="breadcrumb-sep">›</span>
+  <a href="humi_gold.html">Products</a>
+  <span class="breadcrumb-sep">›</span>
+  <span class="breadcrumb-current">SP-Spark</span>
+</div>
+
+<!-- HERO -->
+<div class="product-hero">
+  <div class="hero-dots"></div>
+  <div class="product-hero-inner">
+    <div class="hero-img-wrap">
+      <img src="/mnt/user-data/uploads/1780826159086_image.png" alt="SP-Spark Mix Micro Nutrient bottle" />
+    </div>
+    <div class="product-hero-text">
+      <div class="product-category">Mix Micro Nutrient</div>
+      <h1>SP-<span>Spark</span></h1>
+      <div class="product-hero-hindi">एस पी स्पार्क</div>
+      <p class="product-hero-sub">A complete mix micro nutrient formulation combining essential elements — Iron, Zinc, Magnesium, Potassium, Manganese and more — for balanced crop nutrition.</p>
+      <div class="hero-tag-row">
+        <span class="hero-tag">Mix Micro Nutrient</span>
+        <span class="hero-tag">5 Litre</span>
+        <span class="hero-tag green">All Crops</span>
+        <span class="hero-tag green">Make in India</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+
+  <!-- NOTICE BANNER -->
+  <div class="empty-banner">
+    <i class="fa-solid fa-circle-info"></i>
+    Details will be filled in soon. Placeholder fields are marked with dashes.
+  </div>
+
+  <!-- PRODUCT IDENTITY -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🏢</div>
+      <h2>Product Identity</h2>
+    </div>
+    <div class="card-body">
+      <div class="info-row">
+        <span class="info-label">Company</span>
+        <span class="info-value">SP Organic Plant Technology Pvt. Ltd</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Product Name</span>
+        <span class="info-value"><strong>SP-Spark</strong> (एस पी स्पार्क) — Mix Micro Nutrient</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Reg. / Lic. No.</span>
+        <span class="info-value"><span class="empty-field"> To be added</span></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Pack Details</span>
+        <span class="info-value">
+          <div class="weight-row">
+            <div class="weight-badge">
+              <div class="weight-badge-label">Net Vol.</div>
+              <div class="weight-badge-val">5 <span style="font-size:1rem;">L</span></div>
+            </div>
+            <div class="weight-badge empty">
+              <div class="weight-badge-label">Batch No.</div>
+              <div class="weight-badge-val">—</div>
+            </div>
+            <div class="weight-badge empty">
+              <div class="weight-badge-label">Exp. Date</div>
+              <div class="weight-badge-val">—</div>
+            </div>
+            <div class="weight-badge empty">
+              <div class="weight-badge-label">MRP (₹)</div>
+              <div class="weight-badge-val">—</div>
+            </div>
+          </div>
+        </span>
+      </div>
+      <div class="info-row" style="border:none; padding-bottom:0;">
+        <span class="info-label">Instructions</span>
+        <span class="info-value" style="font-size:13px; color:var(--amber); font-weight:500;">⚠ Shake well before use · For agriculture use only</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MICRONUTRIENTS -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">⚗️</div>
+      <h2>Micro Nutrient Elements</h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:12.5px; color:var(--text-muted); font-weight:300; margin-bottom:1rem; line-height:1.6;">Contains a combination of the following essential micronutrients. Percentages to be added.</p>
+      <div class="nutrient-grid">
+        <div class="nutrient-pill"><span class="symbol">Fe</span> <span>Iron</span> <span class="pct">— %</span></div>
+        <div class="nutrient-pill"><span class="symbol">Zn</span> <span>Zinc</span> <span class="pct">— %</span></div>
+        <div class="nutrient-pill"><span class="symbol">Mg</span> <span>Magnesium</span> <span class="pct">— %</span></div>
+        <div class="nutrient-pill"><span class="symbol">Mn</span> <span>Manganese</span> <span class="pct">— %</span></div>
+        <div class="nutrient-pill"><span class="symbol">K</span> <span>Potassium</span> <span class="pct">— %</span></div>
+        <div class="nutrient-pill"><span class="symbol">Me</span> <span>Molybdenum</span> <span class="pct">— %</span></div>
+        <div class="nutrient-pill empty"><span class="symbol">—</span> <span>To be added</span></div>
+        <div class="nutrient-pill empty"><span class="symbol">—</span> <span>To be added</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPOSITION -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🧪</div>
+      <h2>Composition</h2>
+    </div>
+    <div class="card-body" style="padding:0;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Ingredient</th>
+            <th style="text-align:right; width:130px;">Content (w/w)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>— To be added —</td>
+            <td class="empty-cell">—</td>
+          </tr>
+          <tr>
+            <td>— To be added —</td>
+            <td class="empty-cell">—</td>
+          </tr>
+          <tr>
+            <td>— To be added —</td>
+            <td class="empty-cell">—</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td class="empty-cell">100%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SPECIFICATIONS -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🔬</div>
+      <h2>Specifications</h2>
+    </div>
+    <div class="card-body" style="padding:0;">
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th style="text-align:right; width:130px;">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>pH</td><td class="empty-cell">—</td></tr>
+          <tr><td>Specific gravity</td><td class="empty-cell">—</td></tr>
+          <tr><td>Total dissolved solids (% w/w)</td><td class="empty-cell">—</td></tr>
+          <tr><td>Solubility (% w/w)</td><td class="empty-cell">—</td></tr>
+          <tr><td>— To be added —</td><td class="empty-cell">—</td></tr>
+          <tr><td>— To be added —</td><td class="empty-cell">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CROP DOSE TABLE -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🌾</div>
+      <h2>Recommended Dosage &amp; Crop Table</h2>
+    </div>
+    <div class="card-body" style="padding:0;">
+      <table class="crop-table">
+        <thead>
+          <tr>
+            <th style="width:160px;">Crop</th>
+            <th>Recommended Dose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="crop-name-cell"><i class="fa-solid fa-seedling"></i> — Crop —</div></td>
+            <td><span class="empty-dose">To be added</span></td>
+          </tr>
+          <tr>
+            <td><div class="crop-name-cell"><i class="fa-solid fa-seedling"></i> — Crop —</div></td>
+            <td><span class="empty-dose">To be added</span></td>
+          </tr>
+          <tr>
+            <td><div class="crop-name-cell"><i class="fa-solid fa-seedling"></i> — Crop —</div></td>
+            <td><span class="empty-dose">To be added</span></td>
+          </tr>
+          <tr>
+            <td><div class="crop-name-cell"><i class="fa-solid fa-seedling"></i> — Crop —</div></td>
+            <td><span class="empty-dose">To be added</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🌱</div>
+      <h2>Benefits &amp; Mode of Action</h2>
+    </div>
+    <div class="card-body">
+      <div class="benefit-item">
+        <div class="benefit-icon">✨</div>
+        <div class="benefit-text">
+          <h4>Complete Micro Nutrient Supply</h4>
+          <p>SP-Spark delivers a balanced mix of essential micronutrients — Iron, Zinc, Magnesium, Manganese and more — ensuring no micronutrient deficiency at any crop growth stage.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🌿</div>
+        <div class="benefit-text">
+          <h4>— Benefit to be added —</h4>
+          <p style="color:#ccc; font-style:italic;">Description to be filled in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATION -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">💧</div>
+      <h2>Application Method</h2>
+    </div>
+    <div class="card-body">
+      <div style="background:var(--green-pale); border:1.5px dashed var(--border); border-radius:12px; padding:1.2rem 1.4rem; font-size:13px; color:#aaa; font-style:italic; line-height:1.7;">
+        Application instructions to be added. (e.g. foliar spray, drip, soil application, mixing ratio, spray intervals, etc.)
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER & CAUTION -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">⚠️</div>
+      <h2>Disclaimer &amp; Caution</h2>
+    </div>
+    <div class="card-body">
+      <div class="notice blue">
+        <div class="notice-title">ℹ For Agriculture Use Only</div>
+        <div class="notice-body">This product is formulated exclusively for agricultural use. Shake well before use. Do not use for any other purpose.</div>
+      </div>
+      <div class="notice amber">
+        <div class="notice-title">⚠ Disclaimer</div>
+        <div class="notice-body">— Disclaimer text to be added —</div>
+      </div>
+      <div class="notice red">
+        <div class="notice-title">🚫 Caution</div>
+        <div class="notice-body">Do not mix with incompatible chemicals. Keep out of reach of children. Store in a cool, dry place away from direct sunlight.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANUFACTURER -->
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="card-header-icon">🏭</div>
+      <h2>Manufactured &amp; Marketed By</h2>
+    </div>
+    <div class="card-body">
+      <div class="info-row" style="padding-top:0;">
+        <span class="info-label">Company</span>
+        <span class="info-value"><strong>SP Organic Plant Technology Pvt. Ltd.</strong></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Office</span>
+        <span class="info-value">4J M Kadam Chawl Kantilal Compound, Jija Mata Marg, Andheri, Near Laxi Cottage, Mumbai – 400093</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Factory</span>
+        <span class="info-value">A47, MIDC, Bhokardan, Dist. Jalna – 431114</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Email</span>
+        <span class="info-value"><a href="mailto:sporganicplantt@gmail.com" style="color:var(--green-mid);">sporganicplantt@gmail.com</a></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Website</span>
+        <span class="info-value"><a href="http://www.sporganicplant.com" target="_blank" style="color:var(--green-mid);">www.sporganicplant.com</a></span>
+      </div>
+      <div class="info-row" style="padding-bottom:0; border:none;">
+        <span class="info-label">Customer Care</span>
+        <span class="info-value"><strong>+91 9404000842</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK -->
+  <a href="humi_gold.html" class="back-btn">
+    <i class="fa-solid fa-arrow-left"></i>
+    Back to Products
+  </a>
+
+</main>
+</body>
+</html>
